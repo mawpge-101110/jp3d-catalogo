@@ -6,45 +6,60 @@
     <title>JP_3D | Catálogo de Trofeos</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white font-sans min-h-screen">
+<body class="bg-black text-white min-h-screen">
 
-    <header class="p-6 flex justify-between items-center border-b border-gray-800">
-        <div class="text-2xl font-black text-yellow-400">JP_3D</div>
-        <a href="https://api.whatsapp.com/send?phone=5493888650351&text=Hola%20JP_3D,%20quiero%20consultar%20por%20un%20trofeo" class="bg-green-600 px-4 py-2 rounded-lg font-bold hover:bg-green-500 transition">WhatsApp</a>
+    <header class="p-6 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-black/90 backdrop-blur z-10">
+        <h1 class="text-2xl font-black text-yellow-400 italic">JP_3D</h1>
+        <a href="https://api.whatsapp.com/send?phone=5493888650351&text=Hola%20JP_3D,%20quiero%20consultar%20por%20un%20producto" class="bg-green-600 px-4 py-2 rounded-lg font-bold hover:bg-green-500 transition">WhatsApp</a>
     </header>
 
-    <main class="max-w-6xl mx-auto p-6">
-        <section class="text-center py-12">
-            <h1 class="text-5xl font-black mb-4 uppercase tracking-tighter">Trofeos Personalizados</h1>
-            <p class="text-gray-400">Seleccioná tu modelo y consultanos por WhatsApp.</p>
-        </section>
-
+    <main class="max-w-7xl mx-auto p-4">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            
-            <!-- PRODUCTO 1 - Cambia 'foto1.jpeg' por el nombre de tu archivo -->
-            <article class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-yellow-400 transition">
-                <img src="foto1.jpeg" alt="Trofeo" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/400x400/222/555?text=Renombrar+foto'">
-                <div class="p-3">
-                    <a href="https://api.whatsapp.com/send?phone=5493888650351&text=Hola,%20me%20interesa%20este%20trofeo" class="block w-full text-center bg-yellow-400 text-black font-black py-2 rounded-lg text-sm hover:bg-white transition">Pedir info</a>
-                </div>
-            </article>
+            <script>
+                const imagenes = [
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.22.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.26.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.27%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.27.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.28%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.28.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.29.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.30%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.30.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.31%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.31.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.32.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.33%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.33%20(2).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.33.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.34.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.35%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.35%20(2).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.35.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.36%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.36%20(2).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.36.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.33.37.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.35.05%20(1).jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.35.05.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.35.06.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.35.07.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2013.35.09.jpeg",
+                    "WhatsApp%20Image%202026-07-23%20at%2014.03.05.jpeg"
+                ];
 
-            <!-- PRODUCTO 2 -->
-            <article class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-yellow-400 transition">
-                <img src="foto2.jpeg" alt="Trofeo" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/400x400/222/555?text=Renombrar+foto'">
-                <div class="p-3">
-                    <a href="https://api.whatsapp.com/send?phone=5493888650351&text=Hola,%20me%20interesa%20este%20trofeo" class="block w-full text-center bg-yellow-400 text-black font-black py-2 rounded-lg text-sm hover:bg-white transition">Pedir info</a>
-                </div>
-            </article>
-
-            <!-- Agrega más bloques <article> aquí abajo para las otras fotos -->
-            
+                imagenes.forEach(img => {
+                    document.write(`
+                        <article class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-yellow-500 transition-all">
+                            <img src="${img}" class="w-full h-48 md:h-64 object-cover" loading="lazy">
+                            <div class="p-2">
+                                <a href="https://api.whatsapp.com/send?phone=5493888650351&text=Hola,%20me%20interesa%20el%20producto" class="block w-full text-center bg-yellow-400 text-black font-black py-2 rounded uppercase text-sm hover:bg-white transition">Pedir info</a>
+                            </div>
+                        </article>
+                    `);
+                });
+            </script>
         </div>
     </main>
-
-    <footer class="text-center py-10 text-gray-600 text-sm">
-        &copy; 2026 JP_3D
-    </footer>
-
 </body>
 </html>
