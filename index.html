@@ -59,7 +59,6 @@
       text-decoration: none;
     }
 
-    /* Simulación visual del logo si aún no subes el archivo de imagen */
     .brand-logo-box {
       background: var(--yellow);
       color: #000;
@@ -256,6 +255,7 @@
       border-radius: 20px;
       border: 1px solid var(--yellow);
       text-transform: uppercase;
+      z-index: 2;
     }
 
     .product-info {
@@ -449,15 +449,14 @@
   <!-- HEADER -->
   <header>
     <a href="#" class="brand">
-      <!-- Reemplaza con tu archivo de logo real cuando lo subas a tu servidor -->
       <div class="brand-logo-box">JP_3D</div>
       <span class="brand-title">Catálogo</span>
     </a>
 
     <div class="header-actions">
-      <!-- CAMBIA ESTE NÚMERO POR EL TUYO CON CÓDIGO DE PAÍS (ej: 549388...) -->
-      <a href="https://wa.me/5490000000000?text=Hola%20JP_3D,%20quiero%20hacer%20una%20consulta" target="_blank" class="btn-ws-header">
-        <i class="fa-brands fa-whatsapp"></i> Contactar
+      <!-- Botón principal de WhatsApp -->
+      <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20quiero%20hacer%20una%20consulta" target="_blank" class="btn-ws-header">
+        <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
       </a>
     </div>
   </header>
@@ -477,31 +476,30 @@
 
     <div class="category-filters">
       <button class="filter-btn active" data-category="todos">Todos</button>
-      <button class="filter-btn" data-category="decoracion">Decoración</button>
-      <button class="filter-btn" data-category="llaveros">Llaveros</button>
       <button class="filter-btn" data-category="carteleria">Cartelería & Logos</button>
+      <button class="filter-btn" data-category="llaveros">Llaveros</button>
+      <button class="filter-btn" data-category="decoracion">Decoración</button>
+      <button class="filter-btn" data-category="accesorios">Accesorios</button>
       <button class="filter-btn" data-category="figuras">Figuras</button>
-      <button class="filter-btn" data-category="accesorios">Accesorios & Útiles</button>
     </div>
   </div>
 
-  <!-- GRILLA DEL CATÁLOGO -->
+  <!-- GRILLA DEL CATÁLOGO CON TUS FOTOS REALES DE WHATSAPP -->
   <main class="catalog-grid" id="catalogGrid">
 
     <!-- PRODUCTO 1 -->
     <article class="product-card" data-category="carteleria">
-      <div class="product-img-wrapper" onclick="openModal('Cartel 3D Personalizado', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80', 'Cartelería con relieve personalizada en colores a elección.')">
+      <div class="product-img-wrapper" onclick="openModal('Cartel 3D Personalizado', 'WhatsApp Image 2026-07-23 at 13.33.22.jpeg', 'Cartelería y letreros 3D personalizados en colores a elección.')">
         <span class="tag-category">Cartelería</span>
-        <!-- CAMBIA LA URL DE LA IMAGEN POR LA TUYA (ej: 'images/cartel.jpg') -->
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Cartel 3D">
+        <img src="WhatsApp Image 2026-07-23 at 13.33.22.jpeg" alt="Cartel 3D JP_3D">
       </div>
       <div class="product-info">
-        <h2 class="product-title">Cartel 3D Personalizado</h2>
-        <p class="product-desc">Logotipos y letreros en relieve con la paleta de tu marca. Ideal para locales o regalos.</p>
+        <h2 class="product-title">Cartel / Logo 3D</h2>
+        <p class="product-desc">Logotipos y letreros en relieve personalizados. Ideal para tu emprendimiento o comercio.</p>
         <div class="product-footer">
           <span class="product-price">A cotizar</span>
-          <a href="https://wa.me/5490000000000?text=Hola%20JP_3D,%20me%20interesa%20el%20Cartel%203D%20Personalizado" target="_blank" class="btn-order-ws">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
+          <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20quiero%20consultar%20por%20un%20Cartel%203D%20Personalizado" target="_blank" class="btn-order-ws">
+            <i class="fa-brands fa-whatsapp"></i> Chatear
           </a>
         </div>
       </div>
@@ -509,17 +507,17 @@
 
     <!-- PRODUCTO 2 -->
     <article class="product-card" data-category="llaveros">
-      <div class="product-img-wrapper" onclick="openModal('Llavero Personalizado', 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80', 'Llaveros resistentes impresos en alta resolución.')">
+      <div class="product-img-wrapper" onclick="openModal('Llaveros Personalizados', 'WhatsApp Image 2026-07-23 at 13.33.26.jpeg', 'Llaveros personalizados impresos en alta resolución.')">
         <span class="tag-category">Llaveros</span>
-        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Llavero 3D">
+        <img src="WhatsApp Image 2026-07-23 at 13.33.26.jpeg" alt="Llavero 3D">
       </div>
       <div class="product-info">
-        <h2 class="product-title">Llavero Corporativo / Nombre</h2>
-        <p class="product-desc">Impresión en dos o más colores con argolla incluida. Súper resistentes.</p>
+        <h2 class="product-title">Llaveros Personalizados</h2>
+        <p class="product-desc">Diseños varios, marcas, nombres y promocionales con acabado resistente.</p>
         <div class="product-footer">
           <span class="product-price">Consultar</span>
-          <a href="https://wa.me/5490000000000?text=Hola%20JP_3D,%20me%20interesa%20el%20Llavero%20Personalizado" target="_blank" class="btn-order-ws">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
+          <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20quiero%20pedir%20Llaveros%20Personalizados" target="_blank" class="btn-order-ws">
+            <i class="fa-brands fa-whatsapp"></i> Chatear
           </a>
         </div>
       </div>
@@ -527,17 +525,17 @@
 
     <!-- PRODUCTO 3 -->
     <article class="product-card" data-category="decoracion">
-      <div class="product-img-wrapper" onclick="openModal('Maceta Geométrica 3D', 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80', 'Diseño moderno estilo poliédrico para interiores.')">
+      <div class="product-img-wrapper" onclick="openModal('Diseño Decorativo 3D', 'WhatsApp Image 2026-07-23 at 13.33.27.jpeg', 'Pieza decorativa de diseño exclusivo.')">
         <span class="tag-category">Decoración</span>
-        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80" alt="Maceta 3D">
+        <img src="WhatsApp Image 2026-07-23 at 13.33.27.jpeg" alt="Decoración 3D">
       </div>
       <div class="product-info">
-        <h2 class="product-title">Maceta Geométrica Low-Poly</h2>
-        <p class="product-desc">Maceta de diseño moderno para suculentas o escritorios. Disponible en varios colores.</p>
+        <h2 class="product-title">Diseño Decorativo 3D</h2>
+        <p class="product-desc">Piezas de diseño único para escritorios, repisas y regalos especiales.</p>
         <div class="product-footer">
           <span class="product-price">Consultar</span>
-          <a href="https://wa.me/5490000000000?text=Hola%20JP_3D,%20me%20interesa%20la%20Maceta%20Geométrica" target="_blank" class="btn-order-ws">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
+          <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20me%20interesa%20esta%20pieza%20decorativa" target="_blank" class="btn-order-ws">
+            <i class="fa-brands fa-whatsapp"></i> Chatear
           </a>
         </div>
       </div>
@@ -545,17 +543,17 @@
 
     <!-- PRODUCTO 4 -->
     <article class="product-card" data-category="accesorios">
-      <div class="product-img-wrapper" onclick="openModal('Soporte Auriculares', 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80', 'Soporte robusto de escritorio.')">
+      <div class="product-img-wrapper" onclick="openModal('Soporte / Accesorio 3D', 'WhatsApp Image 2026-07-23 at 13.33.28.jpeg', 'Soporte utilitario para escritorio o celular.')">
         <span class="tag-category">Accesorios</span>
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Soporte 3D">
+        <img src="WhatsApp Image 2026-07-23 at 13.33.28.jpeg" alt="Soporte 3D">
       </div>
       <div class="product-info">
-        <h2 class="product-title">Soporte Gamer para Auriculares</h2>
-        <p class="product-desc">Soporte firme con base antideslizante y canalizador de cables.</p>
+        <h2 class="product-title">Soporte / Accesorio 3D</h2>
+        <p class="product-desc">Accesorios funcionales de escritorio y soporte duraderos.</p>
         <div class="product-footer">
           <span class="product-price">Consultar</span>
-          <a href="https://wa.me/5490000000000?text=Hola%20JP_3D,%20me%20interesa%20el%20Soporte%20Gamer" target="_blank" class="btn-order-ws">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
+          <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20quiero%20consultar%20por%20un%20Soporte%203D" target="_blank" class="btn-order-ws">
+            <i class="fa-brands fa-whatsapp"></i> Chatear
           </a>
         </div>
       </div>
@@ -563,17 +561,35 @@
 
     <!-- PRODUCTO 5 -->
     <article class="product-card" data-category="figuras">
-      <div class="product-img-wrapper" onclick="openModal('Figura Coleccionable Articulada', 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80', 'Figura articulada impresa en resina/PLA.')">
+      <div class="product-img-wrapper" onclick="openModal('Figura Coleccionable 3D', 'WhatsApp Image 2026-07-23 at 13.33.29.jpeg', 'Figura impresa en alta resolución.')">
         <span class="tag-category">Figuras</span>
-        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80" alt="Figura 3D">
+        <img src="WhatsApp Image 2026-07-23 at 13.33.29.jpeg" alt="Figura 3D">
       </div>
       <div class="product-info">
-        <h2 class="product-title">Figura / Articulado 3D</h2>
-        <p class="product-desc">Figuras de colección, dragones articulados y personajes impresos con alto detalle.</p>
+        <h2 class="product-title">Figura / Personaje 3D</h2>
+        <p class="product-desc">Modelos detallados y coleccionables listos para exhibir.</p>
         <div class="product-footer">
           <span class="product-price">Consultar</span>
-          <a href="https://wa.me/5490000000000?text=Hola%20JP_3D,%20me%20interesa%20la%20Figura%20Articulada" target="_blank" class="btn-order-ws">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
+          <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20me%20interesa%20la%20Figura%203D" target="_blank" class="btn-order-ws">
+            <i class="fa-brands fa-whatsapp"></i> Chatear
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 6 -->
+    <article class="product-card" data-category="accesorios">
+      <div class="product-img-wrapper" onclick="openModal('Pieza a Medida 3D', 'WhatsApp Image 2026-07-23 at 13.33.30.jpeg', 'Pieza a medida o repuesto impreso en 3D.')">
+        <span class="tag-category">Accesorios</span>
+        <img src="WhatsApp Image 2026-07-23 at 13.33.30.jpeg" alt="Pieza a Medida 3D">
+      </div>
+      <div class="product-info">
+        <h2 class="product-title">Pieza / Repuesto a Medida</h2>
+        <p class="product-desc">Soluciones funcionales para el día a día hechas en impresión 3D.</p>
+        <div class="product-footer">
+          <span class="product-price">Consultar</span>
+          <a href="https://wa.me/549888650351?text=Hola%20JP_3D,%20necesito%20una%20pieza%20o%20repuesto%20a%20medida" target="_blank" class="btn-order-ws">
+            <i class="fa-brands fa-whatsapp"></i> Chatear
           </a>
         </div>
       </div>
@@ -588,7 +604,7 @@
       <div class="step-card">
         <i class="fa-solid fa-comments step-icon"></i>
         <h3>1. Contáctanos</h3>
-        <p>Envíanos tu idea, foto o archivo 3D por WhatsApp o correo.</p>
+        <p>Envíanos tu idea, foto o archivo 3D directamente por WhatsApp.</p>
       </div>
       <div class="step-card">
         <i class="fa-solid fa-calculator step-icon"></i>
@@ -610,7 +626,10 @@
       <img id="modalImg" class="modal-img" src="" alt="Producto">
       <div class="modal-body">
         <h2 id="modalTitle" style="color: var(--yellow); margin-bottom: 0.5rem;"></h2>
-        <p id="modalDesc" style="color: var(--text-gray);"></p>
+        <p id="modalDesc" style="color: var(--text-gray); margin-bottom: 1rem;"></p>
+        <a id="modalWsBtn" href="#" target="_blank" class="btn-order-ws" style="display: inline-flex; width: fit-content;">
+          <i class="fa-brands fa-whatsapp"></i> Consultar este producto por WhatsApp
+        </a>
       </div>
     </div>
   </div>
@@ -619,13 +638,12 @@
   <footer>
     <p>&copy; 2026 JP_3D - Servicios de Impresión y Diseño 3D</p>
     <div class="socials">
-      <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-      <a href="https://wa.me/5490000000000" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://wa.me/549888650351?text=Hola%20JP_3D" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
     </div>
   </footer>
 
-  <!-- SCRIPT PARA FILTROS Y BÚSQUEDA -->
+  <!-- SCRIPT PARA FILTROS, BÚSQUEDA Y MODAL -->
   <script>
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
@@ -636,8 +654,6 @@
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        const category = btn.dataset.category;
         filterProducts();
       });
     });
@@ -670,6 +686,10 @@
       document.getElementById('modalTitle').textContent = title;
       document.getElementById('modalImg').src = imgSrc;
       document.getElementById('modalDesc').textContent = desc;
+      
+      const wsUrl = "https://wa.me/549888650351?text=" + encodeURIComponent("Hola JP_3D, me interesa saber más sobre: " + title);
+      document.getElementById('modalWsBtn').href = wsUrl;
+
       document.getElementById('productModal').style.display = 'flex';
     }
 
