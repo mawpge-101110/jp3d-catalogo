@@ -62,7 +62,7 @@
             transform: scale(1.05);
         }
 
-        /* Grilla de tarjetas */
+        /* Grilla */
         .contenedor {
             max-width: 1300px;
             margin: 30px auto;
@@ -75,7 +75,7 @@
             gap: 20px;
         }
 
-        /* Tarjetas estilo exacto a JP_3D */
+        /* Tarjetas */
         .tarjeta {
             background-color: var(--tarjeta);
             border-radius: 12px;
@@ -106,7 +106,7 @@
             transform: scale(1.04);
         }
 
-        /* Botón CONSULTAR amarillo */
+        /* Botón CONSULTAR */
         .btn-consultar {
             background-color: var(--amarillo);
             color: #000;
@@ -126,7 +126,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- VISOR EN PANTALLA COMPLETA (ZOOM) --- */
+        /* Visor Zoom */
         .visor-modal {
             display: none;
             position: fixed;
@@ -150,3 +150,130 @@
             max-height: 85vh;
             border-radius: 8px;
             box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+            object-fit: contain;
+        }
+
+        .visor-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .visor-cerrar:hover {
+            color: var(--amarillo);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">JP_3D</div>
+        <a href="https://wa.me/5493888000000?text=Hola!%20Quiero%20consultar%20por%20sus%20trabajos%20en%203D" class="btn-wsp-top" target="_blank">
+            WhatsApp
+        </a>
+    </header>
+
+    <div class="contenedor">
+        <div class="galeria">
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.22.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.22.jpeg" alt="Trofeo 1">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.26.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.26.jpeg" alt="Trofeo 2">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.27%20(1).jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.27%20(1).jpeg" alt="Trofeo 3">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.27.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.27.jpeg" alt="Trofeo 4">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.28%20(1).jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.28%20(1).jpeg" alt="Trofeo 5">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.28.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.28.jpeg" alt="Trofeo 6">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.29.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.29.jpeg" alt="Trofeo 7">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.30%20(1).jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.30%20(1).jpeg" alt="Trofeo 8">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.30.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.30.jpeg" alt="Trofeo 9">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.31%20(1).jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.31%20(1).jpeg" alt="Trofeo 10">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.31.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.31.jpeg" alt="Trofeo 11">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.32.jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.32.jpeg" alt="Trofeo 12">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.33%20(1).jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.33%20(1).jpeg" alt="Trofeo 13">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20este%20trofeo" class="btn-consultar" target="_blank">CONSULTAR</a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('WhatsApp%20Image%202026-07-23%20at%2013.33.33%20(2).jpeg')">
+                    <img src="WhatsApp%20Image%202026-07-23%20at%2013.33.33%20(2).jpeg" alt="Trofeo 14">
+                </div>
+                <a href="
