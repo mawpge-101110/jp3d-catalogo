@@ -75,7 +75,7 @@
             gap: 20px;
         }
 
-        /* Tarjetas */
+        /* Tarjetas estilo exacto a JP_3D */
         .tarjeta {
             background-color: var(--tarjeta);
             border-radius: 12px;
@@ -91,7 +91,6 @@
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
-            position: relative;
         }
 
         .tarjeta img {
@@ -127,7 +126,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- VISOR EN PANTALLA COMPLETA (LIGHTBOX) --- */
+        /* --- VISOR EN PANTALLA COMPLETA (ZOOM) --- */
         .visor-modal {
             display: none;
             position: fixed;
@@ -151,167 +150,3 @@
             max-height: 85vh;
             border-radius: 8px;
             box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
-            object-fit: contain;
-        }
-
-        .visor-cerrar {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            color: #ffffff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-            transition: color 0.2s;
-        }
-
-        .visor-cerrar:hover {
-            color: var(--amarillo);
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">JP_3D</div>
-        <a href="https://wa.me/5493888000000?text=Hola!%20Quiero%20consultar%20por%20sus%20trabajos%20en%203D" class="btn-wsp-top" target="_blank">
-            WhatsApp
-        </a>
-    </header>
-
-    <div class="contenedor">
-        <div class="galeria">
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen1.jpeg')">
-                    <img src="imagen1.jpeg" alt="Trofeo 1">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%231" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen2.jpeg')">
-                    <img src="imagen2.jpeg" alt="Trofeo 2">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%232" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen3.jpeg')">
-                    <img src="imagen3.jpeg" alt="Trofeo 3">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%233" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen4.jpeg')">
-                    <img src="imagen4.jpeg" alt="Trofeo 4">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%234" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen5.jpeg')">
-                    <img src="imagen5.jpeg" alt="Trofeo 5">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%235" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen6.jpeg')">
-                    <img src="imagen6.jpeg" alt="Trofeo 6">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%236" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen7.jpeg')">
-                    <img src="imagen7.jpeg" alt="Trofeo 7">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%237" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen8.jpeg')">
-                    <img src="imagen8.jpeg" alt="Trofeo 8">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%238" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen9.jpeg')">
-                    <img src="imagen9.jpeg" alt="Trofeo 9">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%239" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen10.jpeg')">
-                    <img src="imagen10.jpeg" alt="Trofeo 10">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%2310" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen11.jpeg')">
-                    <img src="imagen11.jpeg" alt="Trofeo 11">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%2311" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-            <div class="tarjeta">
-                <div class="foto-box" onclick="abrirFoto('imagen12.jpeg')">
-                    <img src="imagen12.jpeg" alt="Trofeo 12">
-                </div>
-                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%2312" class="btn-consultar" target="_blank">
-                    CONSULTAR
-                </a>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="visorModal" class="visor-modal" onclick="cerrarFoto()">
-        <span class="visor-cerrar">&times;</span>
-        <img id="fotoAmpliada" class="visor-contenido" src="" alt="Foto en grande">
-    </div>
-
-    <script>
-        function abrirFoto(url) {
-            const modal = document.getElementById('visorModal');
-            const img = document.getElementById('fotoAmpliada');
-            img.src = url;
-            modal.classList.add('activo');
-        }
-
-        function cerrarFoto() {
-            const modal = document.getElementById('visorModal');
-            modal.classList.remove('activo');
-        }
-    </script>
-
-</body>
-</html>
