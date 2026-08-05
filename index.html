@@ -3,109 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D CREATIVO | San Pedro de Jujuy</title>
+    <title>JP 3D | Catálogo de Impresiones</title>
 
-    <!-- CSS de PhotoSwipe (Visor de imágenes) -->
+    <!-- Estilos de PhotoSwipe (Visor de imágenes con Zoom) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.min.css">
 
     <style>
-        :root { --verde: #25D366; --oscuro: #0a0a0a; --tarjeta: #161616; --texto: #ffffff; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--oscuro); color: var(--texto); margin: 0; line-height: 1.6; }
+        :root { 
+            --verde: #25D366; 
+            --oscuro: #0a0a0a; 
+            --tarjeta: #161616; 
+            --texto: #ffffff; 
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--oscuro); 
+            color: var(--texto); 
+            margin: 0; 
+            padding: 0;
+            line-height: 1.6; 
+        }
 
-        nav { background: rgba(0,0,0,0.9); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--verde); }
-        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
-        nav a:hover { color: var(--verde); }
+        /* Barra de navegación superior */
+        nav { 
+            background: rgba(0,0,0,0.95); 
+            padding: 15px 20px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 2px solid var(--verde); 
+        }
 
-        header { padding: 80px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('imagen13.jpeg'); background-size: cover; background-position: center; }
-        header h1 { font-size: 3rem; color: var(--verde); margin: 0; text-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--texto);
+        }
 
-        .contenedor { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .titulo-seccion { text-align: left; font-size: 2rem; margin: 40px 0 25px; color: var(--verde); border-left: 5px solid var(--verde); padding-left: 15px; }
+        /* Único Botón de WhatsApp arriba */
+        .btn-wsp-header { 
+            background: var(--verde); 
+            color: white; 
+            border-radius: 25px; 
+            padding: 8px 18px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.9rem;
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-wsp-header:hover { 
+            transform: scale(1.05); 
+            background: #20ba5a;
+        }
+
+        header { 
+            padding: 60px 20px 40px; 
+            text-align: center; 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--oscuro));
+        }
+
+        header h1 { 
+            font-size: 2.8rem; 
+            color: var(--verde); 
+            margin: 0; 
+            text-shadow: 0 0 15px rgba(37, 211, 102, 0.4); 
+        }
+
+        header p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .contenedor { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
 
         /* Grilla de Galería */
-        .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+            gap: 20px; 
+        }
         
-        .tarjeta { background: var(--tarjeta); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: transform 0.3s, border-color 0.3s; }
-        .tarjeta:hover { transform: translateY(-5px); border-color: var(--verde); }
-        
-        /* Contenedor de imagen clickeable */
-        .tarjeta a { display: block; overflow: hidden; cursor: pointer; position: relative; }
-        
-        .tarjeta img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.3s; }
-        .tarjeta:hover img { transform: scale(1.05); }
+        .tarjeta { 
+            background: var(--tarjeta); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid #222; 
+            transition: transform 0.3s, border-color 0.3s; 
+        }
 
-        .info-tarjeta { padding: 15px; text-align: center; }
-        .info-tarjeta h3 { margin: 0; font-size: 1.1rem; color: #fff; }
+        .tarjeta:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--verde); 
+        }
+        
+        /* Enlace de la foto para el visor */
+        .tarjeta a { 
+            display: block; 
+            overflow: hidden; 
+            cursor: zoom-in; 
+            position: relative; 
+        }
+        
+        .tarjeta img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            display: block; 
+            transition: transform 0.3s; 
+        }
 
-        /* Botón Flotante de WhatsApp para Consultar en General */
-        .btn-wsp-flotante { position: fixed; bottom: 20px; right: 20px; background: var(--verde); color: white; border-radius: 50px; padding: 12px 25px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 999; }
-        .btn-wsp-flotante:hover { transform: scale(1.05); }
+        .tarjeta:hover img { 
+            transform: scale(1.04); 
+        }
+
+        .info-tarjeta { 
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        .info-tarjeta h3 { 
+            margin: 0; 
+            font-size: 1rem; 
+            color: #ddd; 
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado con ÚNICO botón de WhatsApp -->
     <nav>
-        <a href="#catalogo">Catálogo</a>
-        <a href="https://wa.me/5493888000000" target="_blank">Contacto WhatsApp</a>
+        <div class="logo">JP 3D</div>
+        <!-- Cambiá el número si querés recibir los mensajes en otro WhatsApp -->
+        <a href="https://wa.me/5493888000000?text=Hola!%20Quiero%20consultar%20por%20un%20producto%20del%20cat%C3%A1logo" class="btn-wsp-header" target="_blank">
+            💬 Contactar por WhatsApp
+        </a>
     </nav>
 
     <header>
-        <h1>3D CREATIVO</h1>
-        <p>Impresiones 3D y Cartelería Profesional en San Pedro de Jujuy</p>
+        <h1>JP 3D IMPRESIONES</h1>
+        <p>Hacé clic en cualquier imagen para verla en detalle con zoom</p>
     </header>
 
-    <div class="contenedor" id="catalogo">
-        <h2 class="titulo-seccion">Galería de Trabajos</h2>
-        
-        <!-- Galería vinculada a PhotoSwipe -->
-        <div class="galeria" id="mi-galeria">
+    <div class="contenedor">
+        <!-- Galería conectada al visor con Zoom -->
+        <div class="galeria" id="galeria-zoom">
             
             <!-- Foto 1 -->
             <div class="tarjeta">
-                <a href="imagen1.jpeg" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                    <img src="imagen1.jpeg" alt="Trabajo 3D 1" />
+                <a href="imagen1.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen1.jpeg" alt="Producto 3D 1" />
                 </a>
-                <div class="info-tarjeta">
-                    <h3>Trabajo #1</h3>
-                </div>
+                <div class="info-tarjeta"><h3>Producto #1</h3></div>
             </div>
 
             <!-- Foto 2 -->
             <div class="tarjeta">
-                <a href="imagen2.jpeg" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                    <img src="imagen2.jpeg" alt="Trabajo 3D 2" />
+                <a href="imagen2.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen2.jpeg" alt="Producto 3D 2" />
                 </a>
-                <div class="info-tarjeta">
-                    <h3>Trabajo #2</h3>
-                </div>
+                <div class="info-tarjeta"><h3>Producto #2</h3></div>
             </div>
 
             <!-- Foto 3 -->
             <div class="tarjeta">
-                <a href="imagen3.jpeg" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                    <img src="imagen3.jpeg" alt="Trabajo 3D 3" />
+                <a href="imagen3.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen3.jpeg" alt="Producto 3D 3" />
                 </a>
-                <div class="info-tarjeta">
-                    <h3>Trabajo #3</h3>
-                </div>
+                <div class="info-tarjeta"><h3>Producto #3</h3></div>
             </div>
 
-            <!-- Podés seguir agregando el resto de tus imágenes (hasta la 24) usando la misma estructura -->
+            <!-- Foto 4 -->
+            <div class="tarjeta">
+                <a href="imagen4.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen4.jpeg" alt="Producto 3D 4" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #4</h3></div>
+            </div>
+
+            <!-- Foto 5 -->
+            <div class="tarjeta">
+                <a href="imagen5.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen5.jpeg" alt="Producto 3D 5" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #5</h3></div>
+            </div>
+
+            <!-- Foto 6 -->
+            <div class="tarjeta">
+                <a href="imagen6.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen6.jpeg" alt="Producto 3D 6" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #6</h3></div>
+            </div>
+
+            <!-- Foto 7 -->
+            <div class="tarjeta">
+                <a href="imagen7.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen7.jpeg" alt="Producto 3D 7" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #7</h3></div>
+            </div>
+
+            <!-- Foto 8 -->
+            <div class="tarjeta">
+                <a href="imagen8.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen8.jpeg" alt="Producto 3D 8" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #8</h3></div>
+            </div>
+
+            <!-- Foto 9 -->
+            <div class="tarjeta">
+                <a href="imagen9.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen9.jpeg" alt="Producto 3D 9" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #9</h3></div>
+            </div>
+
+            <!-- Foto 10 -->
+            <div class="tarjeta">
+                <a href="imagen10.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen10.jpeg" alt="Producto 3D 10" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #10</h3></div>
+            </div>
+
+            <!-- Foto 11 -->
+            <div class="tarjeta">
+                <a href="imagen11.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen11.jpeg" alt="Producto 3D 11" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #11</h3></div>
+            </div>
+
+            <!-- Foto 12 -->
+            <div class="tarjeta">
+                <a href="imagen12.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen12.jpeg" alt="Producto 3D 12" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #12</h3></div>
+            </div>
+
+            <!-- Foto 13 -->
+            <div class="tarjeta">
+                <a href="imagen13.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen13.jpeg" alt="Producto 3D 13" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #13</h3></div>
+            </div>
+
+            <!-- Foto 14 -->
+            <div class="tarjeta">
+                <a href="imagen14.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen14.jpeg" alt="Producto 3D 14" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #14</h3></div>
+            </div>
+
+            <!-- Foto 15 -->
+            <div class="tarjeta">
+                <a href="imagen15.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen15.jpeg" alt="Producto 3D 15" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #15</h3></div>
+            </div>
+
+            <!-- Foto 16 -->
+            <div class="tarjeta">
+                <a href="imagen16.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen16.jpeg" alt="Producto 3D 16" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #16</h3></div>
+            </div>
+
+            <!-- Foto 17 -->
+            <div class="tarjeta">
+                <a href="imagen17.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen17.jpeg" alt="Producto 3D 17" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #17</h3></div>
+            </div>
+
+            <!-- Foto 18 -->
+            <div class="tarjeta">
+                <a href="imagen18.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen18.jpeg" alt="Producto 3D 18" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #18</h3></div>
+            </div>
+
+            <!-- Foto 19 -->
+            <div class="tarjeta">
+                <a href="imagen19.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen19.jpeg" alt="Producto 3D 19" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #19</h3></div>
+            </div>
+
+            <!-- Foto 20 -->
+            <div class="tarjeta">
+                <a href="imagen20.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen20.jpeg" alt="Producto 3D 20" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #20</h3></div>
+            </div>
+
+            <!-- Foto 21 -->
+            <div class="tarjeta">
+                <a href="imagen21.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen21.jpeg" alt="Producto 3D 21" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #21</h3></div>
+            </div>
+
+            <!-- Foto 22 -->
+            <div class="tarjeta">
+                <a href="imagen22.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen22.jpeg" alt="Producto 3D 22" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #22</h3></div>
+            </div>
+
+            <!-- Foto 23 -->
+            <div class="tarjeta">
+                <a href="imagen23.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen23.jpeg" alt="Producto 3D 23" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #23</h3></div>
+            </div>
+
+            <!-- Foto 24 -->
+            <div class="tarjeta">
+                <a href="imagen24.jpeg" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                    <img src="imagen24.jpeg" alt="Producto 3D 24" />
+                </a>
+                <div class="info-tarjeta"><h3>Producto #24</h3></div>
+            </div>
 
         </div>
     </div>
 
-    <!-- Botón directo de WhatsApp abajo a la derecha -->
-    <a href="https://wa.me/5493888000000?text=Hola!%20Quiero%20consultar%20por%20un%20trabajo%20en%203D" class="btn-wsp-flotante" target="_blank">
-        💬 Consultar por WhatsApp
-    </a>
-
-    <!-- Carga del visor JavaScript de PhotoSwipe -->
+    <!-- Script del visor de fotos (PhotoSwipe) -->
     <script type="module">
         import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe-lightbox.esm.min.js';
         
         const lightbox = new PhotoSwipeLightbox({
-            gallery: '#mi-galeria',
+            gallery: '#galeria-zoom',
             children: 'a',
             pswpModule: () => import('https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.esm.min.js')
         });
