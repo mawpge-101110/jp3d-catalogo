@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JP_3D Impresiones | Catálogo</title>
 
-    <!-- Visor de fotos PhotoSwipe (Zoom) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.min.css">
-
     <style>
         :root {
             --fondo: #000000;
@@ -15,6 +12,10 @@
             --amarillo: #FFCC00;
             --verde: #25D366;
             --texto: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -33,6 +34,9 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
@@ -58,7 +62,7 @@
             transform: scale(1.05);
         }
 
-        /* Grilla de trofeos */
+        /* Grilla de tarjetas */
         .contenedor {
             max-width: 1300px;
             margin: 30px auto;
@@ -71,7 +75,7 @@
             gap: 20px;
         }
 
-        /* Tarjeta estilo exacto a tu imagen */
+        /* Tarjetas */
         .tarjeta {
             background-color: var(--tarjeta);
             border-radius: 12px;
@@ -83,12 +87,11 @@
             border: 1px solid #222;
         }
 
-        /* Contenedor de la foto para el Zoom */
-        .tarjeta a.foto-link {
-            display: block;
+        .tarjeta .foto-box {
             border-radius: 8px;
             overflow: hidden;
-            cursor: zoom-in;
+            cursor: pointer;
+            position: relative;
         }
 
         .tarjeta img {
@@ -101,7 +104,7 @@
         }
 
         .tarjeta:hover img {
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
         /* Botón CONSULTAR amarillo */
@@ -123,6 +126,49 @@
             background-color: #e6b800;
             transform: translateY(-2px);
         }
+
+        /* --- VISOR EN PANTALLA COMPLETA (LIGHTBOX) --- */
+        .visor-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .visor-modal.activo {
+            display: flex;
+        }
+
+        .visor-contenido {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+            object-fit: contain;
+        }
+
+        .visor-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .visor-cerrar:hover {
+            color: var(--amarillo);
+        }
     </style>
 </head>
 <body>
@@ -135,124 +181,136 @@
     </header>
 
     <div class="contenedor">
-        <div class="galeria" id="galeria-jp">
+        <div class="galeria">
 
-            <!-- Trofeo 1 -->
             <div class="tarjeta">
-                <a href="imagen1.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen1.jpeg')">
                     <img src="imagen1.jpeg" alt="Trofeo 1">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%231" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 2 -->
             <div class="tarjeta">
-                <a href="imagen2.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen2.jpeg')">
                     <img src="imagen2.jpeg" alt="Trofeo 2">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%232" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 3 -->
             <div class="tarjeta">
-                <a href="imagen3.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen3.jpeg')">
                     <img src="imagen3.jpeg" alt="Trofeo 3">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%233" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 4 -->
             <div class="tarjeta">
-                <a href="imagen4.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen4.jpeg')">
                     <img src="imagen4.jpeg" alt="Trofeo 4">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%234" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 5 -->
             <div class="tarjeta">
-                <a href="imagen5.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen5.jpeg')">
                     <img src="imagen5.jpeg" alt="Trofeo 5">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%235" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 6 -->
             <div class="tarjeta">
-                <a href="imagen6.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen6.jpeg')">
                     <img src="imagen6.jpeg" alt="Trofeo 6">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%236" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 7 -->
             <div class="tarjeta">
-                <a href="imagen7.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen7.jpeg')">
                     <img src="imagen7.jpeg" alt="Trofeo 7">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%237" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 8 -->
             <div class="tarjeta">
-                <a href="imagen8.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen8.jpeg')">
                     <img src="imagen8.jpeg" alt="Trofeo 8">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%238" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 9 -->
             <div class="tarjeta">
-                <a href="imagen9.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen9.jpeg')">
                     <img src="imagen9.jpeg" alt="Trofeo 9">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%239" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Trofeo 10 -->
             <div class="tarjeta">
-                <a href="imagen10.jpeg" class="foto-link" data-pswp-width="1200" data-pswp-height="1200" target="_blank">
+                <div class="foto-box" onclick="abrirFoto('imagen10.jpeg')">
                     <img src="imagen10.jpeg" alt="Trofeo 10">
-                </a>
+                </div>
                 <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%2310" class="btn-consultar" target="_blank">
                     CONSULTAR
                 </a>
             </div>
 
-            <!-- Podés seguir duplicando el bloque de la tarjeta cambiando el número de la imagen hasta la 24 -->
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('imagen11.jpeg')">
+                    <img src="imagen11.jpeg" alt="Trofeo 11">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%2311" class="btn-consultar" target="_blank">
+                    CONSULTAR
+                </a>
+            </div>
+
+            <div class="tarjeta">
+                <div class="foto-box" onclick="abrirFoto('imagen12.jpeg')">
+                    <img src="imagen12.jpeg" alt="Trofeo 12">
+                </div>
+                <a href="https://wa.me/5493888000000?text=Hola!%20Me%20interesa%20consultar%20por%20el%20Trofeo%20%2312" class="btn-consultar" target="_blank">
+                    CONSULTAR
+                </a>
+            </div>
 
         </div>
     </div>
 
-    <!-- Script del visor de Zoom para las imágenes -->
-    <script type="module">
-        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe-lightbox.esm.min.js';
-        
-        const lightbox = new PhotoSwipeLightbox({
-            gallery: '#galeria-jp',
-            children: 'a.foto-link',
-            pswpModule: () => import('https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.esm.min.js')
-        });
-        
-        lightbox.init();
+    <div id="visorModal" class="visor-modal" onclick="cerrarFoto()">
+        <span class="visor-cerrar">&times;</span>
+        <img id="fotoAmpliada" class="visor-contenido" src="" alt="Foto en grande">
+    </div>
+
+    <script>
+        function abrirFoto(url) {
+            const modal = document.getElementById('visorModal');
+            const img = document.getElementById('fotoAmpliada');
+            img.src = url;
+            modal.classList.add('activo');
+        }
+
+        function cerrarFoto() {
+            const modal = document.getElementById('visorModal');
+            modal.classList.remove('activo');
+        }
     </script>
 
 </body>
